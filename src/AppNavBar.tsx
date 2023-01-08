@@ -8,19 +8,9 @@ import {useNavigate} from "react-router-dom";
 
 import {Image} from "react-bootstrap";
 
-import {useActiveProject} from "./project/project_zustands/activeProjectZus";
-
-import Switch, {Case} from "react-switch-case/lib/esm";
-
-import SettingsOffcanvas from "./settings/SettingsView";
+import useCookie from "react-use-cookie";
 
 import "./AppNavBar.css"
-
-import {AnyEditor} from "./components/licencing/LicenceWrappers";
-
-import useCookie from "react-use-cookie";
-import DeviceDispatcher from "./devtools/DeviceDispatcher";
-import TargetsLibraryApi from "./api/TargetsLibraryApi";
 
 
 export default function AppNavBar() {
@@ -29,7 +19,6 @@ export default function AppNavBar() {
 
     const [isCollapsed, setisCollapsed] = useCookie("navbar-collapsed", false as any)
 
-    const activeProjectZus = useActiveProject()
 
     const collapse = () => {
         setisCollapsed(!isCollapsed as any)
@@ -77,41 +66,7 @@ export default function AppNavBar() {
                 </sb.Menu>
 
                 <sb.Menu>
-                    <MyNavbarItem lang={"core.projects"} link={"/projects"} icon={"/icons/folders.svg"}/>
-
-                    <AnyEditor>
-                        <MyNavbarItem
-                            lang={"core.editor.deployment"}
-                            icon={"/icons/deployment.svg"}
-                            link={`/deployment`}
-                        />
-                    </AnyEditor>
-
-                    {
-                        DeviceDispatcher.isDesktop() && <>
-                            <MyNavbarItem lang={"core.editor.search"}
-                                          link={"/search"}
-                                          icon={"/icons/search.svg"}/>
-
-
-                            <AnyEditor>
-                                <MyNavbarItem lang={"core.deployment"}
-                                              link={"/deployment"}
-                                              icon={"/icons/deployment.svg"}
-                                />
-                            </AnyEditor>
-                        </>
-                    }
-
-                    <hr style={{color: "lightgray"}}/>
-
-                    {
-                        activeProjectZus.project &&
-                        <Switch condition={activeProjectZus.project.type}>
-                            <Case value={"360"}><Project360Content/></Case>
-                            <Case value={"ar"}><ProjectArContent/></Case>
-                        </Switch>
-                    }
+                    <MyNavbarItem lang={"core.applications"} link={"/applications"} icon={"/icons/folders.svg"}/>
 
                 </sb.Menu>
 
@@ -124,12 +79,7 @@ export default function AppNavBar() {
                 >
                     <hr style={{color: "lightgray"}}/>
 
-                    {
-                        (activeProjectZus.project && activeProjectZus.project.type !== "ar") && (
-                            <ActiveProjectFooter/>
-                        )
-                    }
-                    <_SettingsNavItem/>
+                    {/*<_SettingsNavItem/>*/}
 
                     <div
                         className="sidebar-btn-wrapper"
@@ -159,69 +109,6 @@ export default function AppNavBar() {
 
     )
 }
-
-
-function ProjectArContent() {
-
-    const project = useActiveProject()
-
-
-    return (
-        <>
-            <MyNavbarItem
-                lang={"core.editor.targets"}
-                icon={"/icons/create.image.svg"}
-                link={`/projectar/${project.project.uid}/targets`}
-            />
-
-            <MyNavbarItem
-                lang={"core.editor.quizeditor"}
-                icon={"/icons/create.quiz.svg"}
-                link={`/project/${project.project.uid}/assets/quiz`}
-            />
-
-            <MyNavbarItem lang={"core.assets"}
-                          link={`/project/${project.project.uid}/assets`}
-                          icon={"/icons/releases.svg"}
-            />
-
-        </>
-    )
-}
-
-function Project360Content() {
-
-    const project = useActiveProject()
-
-    return (
-        <>
-            <MyNavbarItem
-                lang={"core.editor.area"}
-                icon={"/icons/map.svg"}
-                link={`/project360/${project.project.uid}/area-editor`}
-            />
-            <MyNavbarItem
-                lang={"core.editor.spot"}
-                icon={"/icons/create.mesh.svg"}
-                link={`/project360/${project.project.uid}/spot-editor`}
-            />
-            <MyNavbarItem
-                lang={"core.editor.tour"}
-                icon={"/icons/preview.svg"}
-                link={`/project360/${project.project.uid}/tour`}
-            />
-        </>
-    )
-}
-
-function ActiveProjectFooter() {
-    return (
-        <>
-            <MyNavbarItem lang={"core.save"} link={""} icon={"/icons/save.svg"}/>
-        </>
-    )
-}
-
 
 interface MyNavbarItemProps {
     lang: string
@@ -279,7 +166,7 @@ function MyNavbarSubItem({children, lang, icon}) {
 
     return (
         <sb.SubMenu
-            title={t(lang)}
+            title={t(lang) as string}
             icon={iconComponent}
             color={"white"}
 
@@ -306,10 +193,10 @@ function _SettingsNavItem({}) {
                     setShow(true)
                 }}
             />
-            {
-                show &&
-                <SettingsOffcanvas onHide={() => setShow(false)}/>
-            }
+            {/*{*/}
+            {/*    show &&*/}
+            {/*    <SettingsOffcanvas onHide={() => setShow(false)}/>*/}
+            {/*}*/}
         </>
     )
 }
