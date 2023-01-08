@@ -1,8 +1,2 @@
-FROM rust:1.64
+FROM rust:latest as build
 
-WORKDIR /usr/src/myapp
-COPY . .
-
-RUN cargo install --path .
-
-CMD ["myapp"]
