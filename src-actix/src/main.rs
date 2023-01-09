@@ -20,7 +20,7 @@ pub fn mount(webRef: &mut web::ServiceConfig) {
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    let ipAddress = "127.0.0.1";
+    let ipAddress = "0.0.0.0";
     let port = 5000;
 
     println!("Running on: http://{}:{}", ipAddress, port);
