@@ -13,7 +13,6 @@ export default function LoginPageOverlay({onLoginConfirmed}: LoginPageOverlayPro
     const nameRef = React.useRef<any>()
     const passwordRef = React.useRef<any>()
 
-
     const loginPressed = () => {
 
         const name = nameRef.current.value
