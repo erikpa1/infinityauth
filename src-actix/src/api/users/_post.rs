@@ -1,25 +1,29 @@
 use actix_multipart::Multipart;
 use actix_web::{web, post, Responder};
+use actix_web::web::Form;
 use serde::Deserialize;
 
 use serde_json::{json};
 
 
-#[derive(Deserialize)]
+use actix_easy_multipart::text::Text;
+use actix_easy_multipart::MultipartForm;
+
+
+#[derive(MultipartForm)]
 struct LoginCredentials {
-    user_name: String,
-    password: String,
+    user_name: Text<String>,
+    password: Text<String>,
 
 }
 
 
 #[post("/api/users/try-login")]
 // pub async fn _try_login_user(mut payload: Multipart) -> impl Responder {
-pub async fn _try_login_user(login_data: web::Form<LoginCredentials>) -> impl Responder {
+pub async fn _try_login_user(login_data: MultipartForm<LoginCredentials>) -> impl Responder {
+
     println!("User name: {:?}", login_data.user_name);
     println!("User password: {:?}", login_data.password);
-
-    println!("Heere");
 
     web::Json(json!({
         "is_valid": false,

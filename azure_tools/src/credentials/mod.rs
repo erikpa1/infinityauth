@@ -1,8 +1,12 @@
+
+
+use std::env;
+
 pub fn get_storage_name() -> String {
-    String::from("infinityauth")
+    String::from(env::var("INF_AUTH_STORAGE_NAME").unwrap_or("".into()))
 }
 
 pub fn get_storage_key() -> String {
-    String::from("7uyqlrECzR7t7KDHIpfJptJdYF4ZRDdFMHUeD2bzIK/HZ9xgwwct36YDFnZONca7nWyxDEKZ0FbQ+AStmPz0gQ==")
+    String::from(env::var("INF_AUTH_STORAGE_KEY").unwrap_or("".into()))//
 }
 
