@@ -53,6 +53,17 @@ pub async fn get_entities(tableName: &str) -> Result<Vec<Value>, Box<dyn Error>>
     Ok(retValues)
 }
 
+pub async fn get_entity(table_name: &str, partition_key: &str, row_key: &str) -> Result<Value, Box<dyn Error>> {
+    let table_client = get_table_client(table_name);
+
+    let entity_client = table_client.partition_key_client(partition_key).entity_client(row_key)?;
+
+    let response = entity_client.get().await?;
+
+    let mut entity: Value = response.entity;
+
+    return Ok(entity);
+}
 
 // pub async fn get_entities_stream(tableName: &str) -> Result<(), Box<dyn Error>> {
 //     let table_client = get_service_client().table_client(tableName);

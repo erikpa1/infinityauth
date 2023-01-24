@@ -1,4 +1,5 @@
 mod api;
+mod clouds;
 
 
 use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
@@ -23,6 +24,8 @@ pub fn mount(webRef: &mut web::ServiceConfig) {
 async fn main() -> std::io::Result<()> {
     let ipAddress = "0.0.0.0";
     let port = 5000;
+
+    clouds::initialize_cloud().await;
 
     println!("Running on: http://{}:{}", ipAddress, port);
 

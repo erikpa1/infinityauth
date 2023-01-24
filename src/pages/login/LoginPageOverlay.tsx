@@ -1,6 +1,7 @@
 import React from "react";
 import {Card, Form} from "react-bootstrap";
 import LoginManagerApi from "../../api/LoginManagerApi";
+import {useTranslation} from "react-i18next";
 
 
 interface LoginPageOverlayProps {
@@ -9,6 +10,9 @@ interface LoginPageOverlayProps {
 
 
 export default function LoginPageOverlay({onLoginConfirmed}: LoginPageOverlayProps) {
+
+
+    const [t] = useTranslation()
 
     const nameRef = React.useRef<any>()
     const passwordRef = React.useRef<any>()
@@ -59,7 +63,7 @@ export default function LoginPageOverlay({onLoginConfirmed}: LoginPageOverlayPro
 
                         <div>
                             <div className={"hstack gap-1"}>
-                                <label>User name:</label>
+                                <label>{t("core.username")}:</label>
                             </div>
 
                             <Form.Control
@@ -71,7 +75,7 @@ export default function LoginPageOverlay({onLoginConfirmed}: LoginPageOverlayPro
 
                         <div>
                             <div className={"hstack gap-1"}>
-                                <label>Password:</label>
+                                <label>{t("core.password")}:</label>
                             </div>
 
                             <Form.Control
