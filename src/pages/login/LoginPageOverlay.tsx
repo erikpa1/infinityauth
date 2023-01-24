@@ -52,12 +52,16 @@ export default function LoginPageOverlay({onLoginConfirmed}: LoginPageOverlayPro
 
                         <img
                             style={{
-                                width: "450px"
+                                width: "450px",
+                                height: "50px"
                             }}
-                            src={"/icons/exe_unlock_tomorrow.svg"}/>
+                            src={"/icons/exe_short_dark.svg"}/>
 
                         <div>
-                            <Form.Text>User name</Form.Text>
+                            <div className={"hstack gap-1"}>
+                                <label>User name:</label>
+                            </div>
+
                             <Form.Control
                                 id={"infinityauth-login"}
                                 type={"input"}
@@ -66,7 +70,10 @@ export default function LoginPageOverlay({onLoginConfirmed}: LoginPageOverlayPro
                         </div>
 
                         <div>
-                            <Form.Text>Password</Form.Text>
+                            <div className={"hstack gap-1"}>
+                                <label>Password:</label>
+                            </div>
+
                             <Form.Control
                                 id={"infinityauth-password"}
                                 type={"password"}
