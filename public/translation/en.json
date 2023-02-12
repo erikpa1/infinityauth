@@ -1,3 +1,6 @@
 {
-  "core.username": "User name"
+  "core.username": "User name",
+  "core.password": "Password",
+  "core.applications": "Applications",
+  "core.login": "Login"
 }

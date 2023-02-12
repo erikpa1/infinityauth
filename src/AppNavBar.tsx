@@ -60,13 +60,16 @@ export default function AppNavBar() {
                         }} onClick={() => {
                         collapse()
                     }}>
-                        {"Infinity AR"}
+                        {"Infinity AUTH"}
                     </div>
 
                 </sb.Menu>
 
                 <sb.Menu>
                     <MyNavbarItem lang={"core.applications"} link={"/applications"} icon={"/icons/folders.svg"}/>
+                    <MyNavbarItem lang={"core.organizations"} link={"/organizations"} icon={"/icons/folders.svg"}/>
+                    <MyNavbarItem lang={"core.users"} link={"/organizations"} icon={"/icons/folders.svg"}/>
+                    <MyNavbarItem lang={"core.licences"} link={"/licences"} icon={"/icons/folders.svg"}/>
 
                 </sb.Menu>
 
@@ -88,7 +91,6 @@ export default function AppNavBar() {
 
                         }}
                     >
-
                         <Image
                             src={isCollapsed ? "/icons/exe_short.svg" : "/icons/exe_unlock_tomorrow.svg"}
                             onClick={() => {
@@ -97,13 +99,8 @@ export default function AppNavBar() {
                             style={{
                                 cursor: "pointer",
                             }}/>
-
-
                     </div>
-
                 </sb.Menu>
-
-
             </sb.Sidebar>
         </div>
 

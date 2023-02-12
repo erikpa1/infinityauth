@@ -2,5 +2,7 @@
 resolver = "2"
 members = [
     "src-actix",
+    "azure_tools",
+    "infinity_tools",
 ]
 default-members = ["src-actix"]

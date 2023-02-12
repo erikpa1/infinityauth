@@ -1,6 +1,7 @@
 import React from "react";
 import {Card, Form} from "react-bootstrap";
 import LoginManagerApi from "../../api/LoginManagerApi";
+import {useTranslation} from "react-i18next";
 
 
 interface LoginPageOverlayProps {
@@ -10,9 +11,11 @@ interface LoginPageOverlayProps {
 
 export default function LoginPageOverlay({onLoginConfirmed}: LoginPageOverlayProps) {
 
+
+    const [t] = useTranslation()
+
     const nameRef = React.useRef<any>()
     const passwordRef = React.useRef<any>()
-
 
     const loginPressed = () => {
 
@@ -53,12 +56,16 @@ export default function LoginPageOverlay({onLoginConfirmed}: LoginPageOverlayPro
 
                         <img
                             style={{
-                                width: "450px"
+                                width: "450px",
+                                height: "50px"
                             }}
-                            src={"/icons/exe_unlock_tomorrow.svg"}/>
+                            src={"/icons/exe_short_dark.svg"}/>
 
                         <div>
-                            <Form.Text>User name</Form.Text>
+                            <div className={"hstack gap-1"}>
+                                <label>{t("core.username")}:</label>
+                            </div>
+
                             <Form.Control
                                 id={"infinityauth-login"}
                                 type={"input"}
@@ -67,7 +74,10 @@ export default function LoginPageOverlay({onLoginConfirmed}: LoginPageOverlayPro
                         </div>
 
                         <div>
-                            <Form.Text>Password</Form.Text>
+                            <div className={"hstack gap-1"}>
+                                <label>{t("core.password")}:</label>
+                            </div>
+
                             <Form.Control
                                 id={"infinityauth-password"}
                                 type={"password"}
