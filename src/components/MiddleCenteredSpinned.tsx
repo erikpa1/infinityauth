@@ -11,3 +11,20 @@ export default function MiddleCenteredSpinned() {
         </div>
     )
 }
+
+
+interface SpinnerLoadingSwitchProps {
+    isLoading: boolean,
+    children: any
+}
+
+export function SpinnerLoadingSwitch({isLoading, children}: SpinnerLoadingSwitchProps) {
+
+    if (isLoading) {
+        return (
+            <MiddleCenteredSpinned/>
+        )
+    } else {
+        return children
+    }
+}

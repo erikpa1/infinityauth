@@ -8,6 +8,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {HashRouter} from "react-router-dom";
 
+import "./i18n";
+
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );

@@ -66,10 +66,10 @@ export default function AppNavBar() {
                 </sb.Menu>
 
                 <sb.Menu>
-                    <MyNavbarItem lang={"core.applications"} link={"/applications"} icon={"/icons/folders.svg"}/>
-                    <MyNavbarItem lang={"core.organizations"} link={"/organizations"} icon={"/icons/folders.svg"}/>
-                    <MyNavbarItem lang={"core.users"} link={"/organizations"} icon={"/icons/folders.svg"}/>
-                    <MyNavbarItem lang={"core.licences"} link={"/licences"} icon={"/icons/folders.svg"}/>
+                    <MyNavbarItem lang={"core.applications"} link={"/applications"} icon={"/icons/create.mesh.svg"}/>
+                    <MyNavbarItem lang={"core.organizations"} link={"/organizations"} icon={"/icons/create.digitaltwin.svg"}/>
+                    <MyNavbarItem lang={"core.users"} link={"/organizations"} icon={"/icons/user.svg"}/>
+                    <MyNavbarItem lang={"core.licences"} link={"/licences"} icon={"/icons/statistics.svg"}/>
 
                 </sb.Menu>
 

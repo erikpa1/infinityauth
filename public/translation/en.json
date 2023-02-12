@@ -2,5 +2,8 @@
   "core.username": "User name",
   "core.password": "Password",
   "core.applications": "Applications",
-  "core.login": "Login"
+  "core.login": "Login",
+  "core.organizations": "Organization",
+  "core.licences": "Licences",
+  "core.users": "Users"
 }

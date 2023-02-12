@@ -5,5 +5,6 @@ pub async fn initialize_cloud() {
 
     if provider == "azure" {
         azure::init_azure().await
+
     }
 }

@@ -59,7 +59,7 @@ export default function LoginPageOverlay({onLoginConfirmed}: LoginPageOverlayPro
                                 width: "450px",
                                 height: "50px"
                             }}
-                            src={"/icons/exe_short_dark.svg"}/>
+                            src={"/branding/branding_light.svg"}/>
 
                         <div>
                             <div className={"hstack gap-1"}>

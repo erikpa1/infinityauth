@@ -4,6 +4,7 @@ import './App.css';
 import LoginManagerApi from "./api/LoginManagerApi";
 import MiddleCenteredSpinned from "./components/MiddleCenteredSpinned";
 import LoginPageOverlay from "./pages/login/LoginPageOverlay";
+import {useNavigate} from "react-router-dom";
 
 
 const LoggedContent = React.lazy(() => import("./LoggedContent"))
@@ -23,6 +24,8 @@ export default function App() {
         LoginManagerApi.isLoggedIn().then((isLoggedIn) => {
             setIsLoading(false)
             setIsLoggedIn(isLoggedIn)
+
+
         })
 
     }, [])
@@ -30,6 +33,7 @@ export default function App() {
 
     return (
         <div className="App">
+            <div className="app_background"/>
             {
                 isLoading ? <_LoadingView/> : <>
                     {

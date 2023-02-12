@@ -2,5 +2,8 @@
   "core.username": "User name",
   "core.password": "Password",
   "core.applications": "Applications",
-  "core.login": "Prihlásit"
+  "core.login": "Prihlásit",
+  "core.organizations": "Organizace",
+  "core.licences": "Licence",
+  "core.organizations": "Uživatelé"
 }
