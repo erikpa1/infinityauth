@@ -3,6 +3,8 @@ import {Card, Form} from "react-bootstrap";
 import LoginManagerApi from "../../api/LoginManagerApi";
 import {useTranslation} from "react-i18next";
 
+import Button from '@mui/material/Button';
+
 
 interface LoginPageOverlayProps {
     onLoginConfirmed: () => void
@@ -86,11 +88,12 @@ export default function LoginPageOverlay({onLoginConfirmed}: LoginPageOverlayPro
                         </div>
 
                         <div className={"hstack"} style={{marginLeft: "auto"}}>
-                            <button
-                                className={"btn btn-primary"}
+                            <Button
+                                variant="contained"
                                 onClick={loginPressed}
-                            >Login
-                            </button>
+                            >
+                                {t("core.login")}
+                            </Button>
                         </div>
 
                     </div>
