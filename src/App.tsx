@@ -5,6 +5,8 @@ import LoginManagerApi from "./api/LoginManagerApi";
 import MiddleCenteredSpinned from "./components/MiddleCenteredSpinned";
 import LoginPageOverlay from "./pages/login/LoginPageOverlay";
 import {useNavigate} from "react-router-dom";
+import {useGlobalPopup} from "./zustands/globalPopupZus";
+import GlobalAppLock from "./shared/GlobalAppLock";
 
 
 const LoggedContent = React.lazy(() => import("./LoggedContent"))
@@ -34,6 +36,8 @@ export default function App() {
     return (
         <div className="App">
             <div className="app_background"/>
+
+            <GlobalAppLock/>
             {
                 isLoading ? <_LoadingView/> : <>
                     {
@@ -46,6 +50,7 @@ export default function App() {
 
             }
 
+            <_GlobalPopup/>
         </div>
     );
 }
@@ -84,4 +89,20 @@ function _LoggedContent() {
 }
 
 
+function _GlobalPopup() {
 
+    const popupZus = useGlobalPopup()
+
+    if (popupZus.elements.length > 0) {
+        return (
+            <>
+                {popupZus.elements.map((value, index) => {
+                    return <React.Fragment key={index}>{value}</React.Fragment>
+                })}
+            </>
+        )
+    } else {
+        return (<></>)
+    }
+
+}

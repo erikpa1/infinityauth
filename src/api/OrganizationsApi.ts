@@ -1,8 +1,8 @@
 import axios from "axios";
-import {OrganizationsLight} from "../data/organizations";
+import {OrganizationLight} from "../data/organization";
 
 export default class OrganizationsApi {
-    static async getOrganizationsLight(): Promise<Array<OrganizationsLight>> {
+    static async getOrganizationLight(): Promise<Array<OrganizationLight>> {
         const value = await axios.get("/api/organizations/get-organizations")
         return value.data.values
     }

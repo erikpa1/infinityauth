@@ -1,1 +1,0 @@
-docker build --tag 9706078888/infinityauth .
